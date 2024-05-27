@@ -6,6 +6,7 @@ import asyncio
 import json
 from collections import defaultdict
 import time
+import uvicorn
 
 # Import your custom modules
 from token_model import Token
@@ -81,6 +82,5 @@ async def http_exception_handler(request, exc):
     return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
 
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app)
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
