@@ -36,6 +36,7 @@ app.add_middleware(
 
 
 async def stream_response(user_id, stream_id):
+    
     hashed_integer = hash_user_to_group(user_id)
     for i in range(1, 5):  # Stream 5 responses
         # Increment visit count and stream sequence number for this stream instance
@@ -52,6 +53,7 @@ async def stream_response(user_id, stream_id):
         }
         yield f"data: {json.dumps(response_data)}\n\n"
         await asyncio.sleep(1)
+        
 
 @app.get('/')
 async def root():
