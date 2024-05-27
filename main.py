@@ -89,3 +89,9 @@ async def reset_rate_limit( request: Request,token: str = Depends(validate_token
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
     return JSONResponse(status_code=exc.status_code, content={"detail": exc.detail})
+
+
+# This line is crucial for Vercel
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)
