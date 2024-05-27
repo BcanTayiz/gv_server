@@ -22,7 +22,7 @@ user_visits = defaultdict(lambda: defaultdict(int))
 # Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Adjust this to your specific domain if needed
+    allow_origins=["https://gv-client-cbzo.vercel.app/"],  # Adjust this to your specific domain if needed
     allow_credentials=True,
     allow_methods=["*"],  # This will allow all methods including OPTIONS
     allow_headers=["*"],
